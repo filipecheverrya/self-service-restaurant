@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/self-service-restaurant/static/js/main.6d7eabfb.chunk.js",
+    "main.js.map": "/self-service-restaurant/static/js/main.6d7eabfb.chunk.js.map",
+    "runtime-main.js": "/self-service-restaurant/static/js/runtime-main.d76725e9.js",
+    "runtime-main.js.map": "/self-service-restaurant/static/js/runtime-main.d76725e9.js.map",
+    "static/js/2.80a62638.chunk.js": "/self-service-restaurant/static/js/2.80a62638.chunk.js",
+    "static/js/2.80a62638.chunk.js.map": "/self-service-restaurant/static/js/2.80a62638.chunk.js.map",
+    "index.html": "/self-service-restaurant/index.html",
+    "precache-manifest.0a12641fabdc2e1b572161010a3b4333.js": "/self-service-restaurant/precache-manifest.0a12641fabdc2e1b572161010a3b4333.js",
+    "service-worker.js": "/self-service-restaurant/service-worker.js",
+    "static/js/2.80a62638.chunk.js.LICENSE": "/self-service-restaurant/static/js/2.80a62638.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d76725e9.js",
+    "static/js/2.80a62638.chunk.js",
+    "static/js/main.6d7eabfb.chunk.js"
+  ]
+}
