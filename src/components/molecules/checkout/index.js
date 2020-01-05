@@ -14,7 +14,7 @@ export default function Index (props) {
 
   const cancel = () => {
     const { push } = props.props.data.history;
-    return push('/');
+    return push('/self-service-restaurant');
   }
 
   useEffect(() => {
