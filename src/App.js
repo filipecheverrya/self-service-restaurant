@@ -12,7 +12,7 @@ function Root(props) {
       <GlobalStyle />
       <Switch>
   
-        <Route path="/product/:id" children={props => <Products data={props} withDrinks />} />
+        <Route path="/product/:id" children={props => <Products data={props} isDrinks />} />
         <Route path="/product" children={props => <Products data={props} />} />
         <Route path="/checkout" children={props => <Checkout data={props} />} />
         <Route path="/success" children={props => <Success data={props} />} />

@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Column, Break } from './style';
 import Button from '../../atoms/button';
+import { SetOrder } from '../../../api';
 
 export default function Index (props) {
   const [drink, setDrink] = useState(0);
   const [food, setFood] = useState(0);
   
-  const order = () => {
-    // TODO: post dos dados pedidos.
+  const order = async () => {
     const { push } = props.props.data.history;
-    return push('/success');
+    const data = {
+      tableNumber: 0,
+      isDelivered: false,
+      order: { food, drink }
+    }
+    
+    try {
+      const res = await SetOrder(data);
+      return push('/success');
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   const cancel = () => {
@@ -24,6 +35,15 @@ export default function Index (props) {
     setFood(y);
   }, [])
 
+  const normilizeMoney = (cash) => {
+    const result = String(cash).replace(/[.]/g, ',');
+    const rgx = result.match(/,(.*)/g);
+    if (!rgx) return `R$ ${result},00`;
+    if (rgx[0].length <= 2) return `R$ ${result}0`;
+
+    return `R$ ${result}`
+  }
+
   return (
     <>
       {drink
@@ -31,21 +51,17 @@ export default function Index (props) {
           <>
             <Row>
               <Column>{food.name}</Column>
-              <Column>{food.price}</Column>
+              <Column>{normilizeMoney(food.price)}</Column>
             </Row>
             <Row>
               <Column>{drink.name}</Column>
-              <Column>{drink.price}</Column>
+              <Column>{normilizeMoney(drink.price)}</Column>
             </Row>
             <Break />
             <Row>
               <Column>Total</Column>
               <Column>
-                {`R$ ${
-                  Number(drink.price.replace(/[ R$]/g, '').replace(/[,]/g, '.'))
-                  + Number(food.price.replace(/[ R$]/g, '').replace(/[,]/g, '.'))
-                  }`
-                }
+                {normilizeMoney(food.price + drink.price)}
               </Column>
             </Row>
             <Button onClick={() => order()}>Fazer o pedido</Button>
